@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: white;
+    font-family: helvetica;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1em;
+    border-bottom: 3px gray solid;
+}
+
+.navbar .logo img {
+    height: 70px;
+}
+
+.navButtons {
+    display: flex;
+    align-items: center;
+}
+
+.navButton {
+    text-decoration: none;
+    font-size: 1.5em;
+    margin: 0 .5em;
+    transition: .4s;
+}
+
+.navButton:hover {
+    color: #222;
+    -webkit-text-stroke: 2px white;
+}
+
+/* conteiner */
+.conteiner {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    margin-top: 1em;
+    padding: 1em;
+    min-height: 75vh;
+}
+
+.title {
+    color: yellow;
+    font-weight: bold;
+    cursor: context-menu;
+    transition: 1s;
+    margin-bottom: 1em;
+}
+
+.logoConteiner {
+    height: 150px;
+}
+
+/* forms */
+.formConteiner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 90vh;
+    padding-top: 5vh;
+}
+
+.formLogin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.formControl {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1em;
+}
+
+.formControl label {
+    color: gray;
+    font-size: 1.3em;
+    border: none;
+}
+
+.formControl input {
+    font-size: 1.3em;
+    border: none;
+    border-bottom: gray 1px solid;
+    min-width: 300px;
+}
+
+.formConteiner p {
+    margin-top: .5em;
+    font-size: .7em;
+}
+
+.formConteiner p a {
+    text-decoration: none;
+    color: yellow;
+}
+
+.btn {
+    color: black;
+    background-color: yellow;
+    padding: .3em .5em;
+    margin: .7em 0;
+    border-radius: .7em;
+    cursor: pointer;
+}
+
+/* not found page */
+.notFoundConteiner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20vh;
+    height: 70vh;
+}
+
+.notFoundConteiner h1 {
+    color: #222;
+    -webkit-text-stroke: 1px white;
+    font-size: 2em;
+    margin-top: 1em;
+}
+
+.notFoundConteiner a {
+    text-decoration: none;
+    transition: .4s;
+}
+
+.notFoundConteiner a:hover {
+    color: #222;
+    -webkit-text-stroke: 1px white;
+}
+
+/* all footers */
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: context-menu;
+    margin: 1em;
+}
+
+footer p {
+    color: gray;
+}
