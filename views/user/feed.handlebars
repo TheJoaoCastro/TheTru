@@ -2,13 +2,23 @@
     <div class="users">
         <h2>All Users</h2>
         <ul>
-            {{#if users}}
             {{#each users}}
-            <li>{{this.name}}</li>
+            <div class="postImageNameEmail">
+                    <a href="/user/account/{{this.id}}">
+                        <div class="pictureDiv">
+                            {{#if this.picture}}
+                            <img src="{{this.picture}}" alt="Picture" class="picture">
+                            {{else}}
+                            <img src="/images/nopicture.jpg" alt="Picture" class="picture">
+                            {{/if}}
+                        </div>
+                    </a>
+                    <div class="nameEmailDiv">
+                        <p class="author">{{this.name}}</p>
+                        <p>{{this.email}}</p>
+                    </div>
+                </div>
             {{/each}}
-            {{else}}
-            <p>No user yet</p>
-            {{/if}}
         </ul>
     </div>
     <div class="feed">
