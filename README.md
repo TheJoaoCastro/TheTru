@@ -1,5 +1,5 @@
-![Screenshot](https://raw.githubusercontent.com/TheJoaoCastro/TheTru/main/public/images/images%20README/print2.png)
 ![Screenshot](https://raw.githubusercontent.com/TheJoaoCastro/TheTru/main/public/images/images%20README/print1.png)
+![Screenshot](https://raw.githubusercontent.com/TheJoaoCastro/TheTru/main/public/images/images%20README/print2.png)
 ![Screenshot](https://raw.githubusercontent.com/TheJoaoCastro/TheTru/main/public/images/images%20README/print3.png)
 
 ## Passo a passo:
