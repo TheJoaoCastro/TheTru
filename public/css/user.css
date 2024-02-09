@@ -6,6 +6,10 @@
     font-family: helvetica;
 }
 
+body {
+    background-color: black;
+}
+
 .navbar {
     display: flex;
     justify-content: space-between;
