@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize')
-const db  = require('../db/conn')
+const db = require('../db/conn')
 
 const User = db.define('User', {
     uuid: {
@@ -26,5 +26,5 @@ const User = db.define('User', {
         type: DataTypes.STRING
     }
 })
- 
+
 module.exports = User

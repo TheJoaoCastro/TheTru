@@ -1,1 +1,61 @@
-<h1 class="title">Feed</h1>
+<div class="feedConteiner">
+    <div class="users">
+        <h2>All Users</h2>
+        <ul>
+            {{#if users}}
+            {{#each users}}
+            <li>{{this.name}}</li>
+            {{/each}}
+            {{else}}
+            <p>No user yet</p>
+            {{/if}}
+        </ul>
+    </div>
+    <div class="feed">
+        <form action="/user/posts/create" method="post" class="formPostArea">
+            <input type="text" name="post" id="postArea" style="resize: none" placeholder="What are you thinking now?"
+                maxlength="84" autocomplete="off" autofocus>
+            <input type="text" name="image" id="postImage" style="resize: none" placeholder="Image link"
+                autocomplete="off" autofocus>
+            <input type="submit" value="Send" class="btnPost">
+        </form>
+        {{#if posts}}
+        <div class="posts">
+            {{#each posts}}
+            <div class="post">
+
+                <div class="postImageNameEmail">
+                    <a href="/user/account/{{this.User.id}}">
+                        <div class="pictureDiv">
+                            {{#if this.User.picture}}
+                            <img src="{{this.User.picture}}" alt="Picture" class="picture">
+                            {{else}}
+                            <img src="/images/nopicture.jpg" alt="Picture" class="picture">
+                            {{/if}}
+                        </div>
+                    </a>
+                    <div class="nameEmailDiv">
+                        <p class="author">{{this.User.name}}</p>
+                        <p>{{this.User.email}}</p>
+                    </div>
+                </div>
+                <h3 class="postTitle">{{this.title}}</h3>
+                {{#if this.image}}
+                <img src="{{this.image}}" alt="Image" class="postImage">
+                {{/if}}
+            </div>
+            {{/each}}
+        </div>
+        {{else}}
+        <div class="posts">
+            <h3 class="noPosts">No community posts yet</h3>
+        </div>
+        {{/if}}
+    </div>
+    <div class="ads">
+        <h3>Ads</h3>
+        <img src="/images/camaAd.gif" alt="">
+        <img src="/images/clubeAd.gif" alt="">
+        <img src="/images/shopAd.gif" alt="">
+    </div>
+</div>

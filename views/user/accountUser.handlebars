@@ -1,24 +1,21 @@
 <div class="feedConteiner">
     <div class="users">
-        {{#if dataUser.picture}}
-        <img src="{{dataUser.picture}}" alt="Picture" class="picturePost">
+        {{#if userData.picture}}
+        <img src="{{userData.picture}}" alt="Picture" class="picturePost">
         {{else}}
         <img src="/images/nopicture.jpg" alt="Picture" class="picturePost">
         {{/if}}
-        <h1>{{dataUser.name}}</h1>
-        <p>{{dataUser.email}}</p>
+        <h1>{{userData.name}}</h1>
+        <p>{{userData.email}}</p>
     </div>
     <div class="feed">
-        <h1 class="title">Your posts</h1>
+        <h1 class="title">{{userData.name}} posts</h1>
         {{#if posts}}
         <div class="posts">
             {{#each posts}}
             <div class="post">
                 <div class="postControl">
                     <h3 class="postTitle">{{this.title}}</h3>
-                    <a href="/user/posts/delete/{{this.id}}" title="Delete">
-                        <bi class="bi bi-eraser"></bi>
-                    </a>
                 </div>
                 {{#if this.image}}
                 <img src="{{this.image}}" alt="Image" class="postImage">

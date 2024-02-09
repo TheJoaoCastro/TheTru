@@ -24,7 +24,7 @@ app.use(express.urlencoded({
 app.use(express.json())
 
 // set folder of the css and images
-app.use(express.static('public')) 
+app.use(express.static('public'))
 
 // flash messages
 app.use(flash())
@@ -61,8 +61,8 @@ app.use((req, res, next) => {
 // routes
 app.use('/user', usersRoutes)
 
-app.get('/', (req, res) => {
-    res.redirect('/user/login')
+app.get('/', async (req, res) => {
+    return res.redirect('/user/login')
 })
 
 app.use((req, res) => {

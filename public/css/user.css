@@ -58,6 +58,158 @@
     height: 150px;
 }
 
+.feedConteiner {
+    display: flex;
+}
+
+.users {
+    display: flex;
+    flex-direction: column;
+    margin-right: 10vw;
+    width: 15vw;
+}
+
+.users h2 {
+    margin-bottom: .7em;
+    color: yellow;
+}
+
+.users ul li {
+    margin-bottom: .3em;
+    list-style: none;
+}
+
+.picturePost {
+    width: 150px;
+}
+
+.feed {
+    display: flex;
+    flex-direction: column;
+}
+
+.ads {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    margin-left: 10vw;
+    width: 15vw;
+}
+
+.ads img {
+    width: 15vw;
+    margin-top: 1em;
+}
+
+/* posts */
+.formPostArea {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+#postArea {
+    font-size: 1em;
+    background-color: transparent;
+    border: none;
+    width: 40vw;
+    padding: .3em 0;
+    box-shadow: 0;
+    outline: 0;
+}
+
+#postImage {
+    font-size: 1em;
+    background-color: transparent;
+    border: none;
+    width: 40vw;
+    padding: .3em 0;
+    border-top: gray 1px solid;
+    box-shadow: 0;
+    outline: 0;
+}
+
+
+.btnPost {
+    color: black;
+    background-color: yellow;
+    font-size: 1em;
+    padding: .3em .5em;
+    margin: .7em 0 0 0;
+    border: none;
+    border-radius: .7em;
+    cursor: pointer;
+    transition: .5s;
+    text-decoration: none;
+}
+
+.posts {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    min-width: 40vw;
+}
+
+.post {
+    align-items: center;
+    background-color: transparent;
+    padding: 1em .5em;
+    border: 1px yellow solid;
+    border-radius: 1em;
+    margin-top: 1em;
+    width: 40vw;
+}
+
+.postControl {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 .5em;
+}
+
+.postControl a {
+    text-decoration: none;
+    margin: .5em;
+}
+
+.noPosts {
+    margin-top: 15vh;
+}
+
+.postImageNameEmail {
+    display: flex;
+    align-items: center;
+    margin-bottom: .5em
+}
+
+.pictureDiv .picture {
+    height: 50px;
+    border-radius: 1em;
+}
+
+.nameEmailDiv {
+    cursor: context-menu;
+    margin-left: .5em;
+}
+
+.postTitle {
+    margin: 0;
+    background-color: transparent;
+}
+
+.postImage {
+    width: 40vw;
+    margin-top: 1em;
+    border-radius: 1em;
+}
+
+.author {
+    color: rgba(255, 255, 0, 0.688);
+    background-color: transparent;
+}
+
 /* forms */
 .formConteiner {
     display: flex;
@@ -96,11 +248,13 @@ form {
     border: none;
     border-bottom: gray 1px solid;
     min-width: 300px;
+    box-shadow: 0;
+    outline: 0;
 }
 
 .formConteiner p {
     background-color: transparent;
-    margin-top: .5em;
+    margin-top: 1.5em;
     font-size: .7em;
 }
 
@@ -117,9 +271,22 @@ form {
     margin-top: .5em;
 }
 
-.formButton .btn {
+.btn {
     color: black;
     background-color: yellow;
+    font-size: 1.2em;
+    padding: .3em .5em;
+    margin: 1em 0 0 0;
+    border: none;
+    border-radius: .7em;
+    cursor: pointer;
+    transition: .5s;
+    text-decoration: none;
+}
+
+.btnLogout {
+    color: white;
+    background-color: transparent;
     font-size: 1.2em;
     padding: .3em .5em;
     margin: .7em 0;
@@ -127,6 +294,16 @@ form {
     border-radius: .7em;
     cursor: pointer;
     transition: .5s;
+    text-decoration: none;
+}
+
+.pictureAccount {
+    max-height: 100px;
+    border-radius: 1em;
+}
+
+a {
+    text-decoration: none;
 }
 
 /* flash messages */
@@ -134,15 +311,14 @@ form {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(160, 108, 12, 0.707);
+    background-color: rgba(251, 255, 19, 0.452);
     padding: .7em;
     border: 1px white solid;
-    margin-top: 1em;
+    margin-bottom: 1em;
     color: white;
     font-size: 1.3em;
     border-radius: 15px;
-    min-width: 70vw;
-    max-width: 70vw;
+    width: 40vw;
 }
 
 .alert {
@@ -157,7 +333,7 @@ form {
     font-size: 1.3em;
     border-radius: 15px;
     min-width: 70vw;
-    max-width: 70vw;
+    max-width: 40vw;
 }
 
 /* not found page */

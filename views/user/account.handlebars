@@ -1,1 +1,20 @@
 <h1 class="title">Account</h1>
+
+<form action="/user/account/update" method="post">
+    {{#if userData.picture}}
+    <img src="{{userData.picture}}" alt="Picture" class="pictureAccount">
+    {{else}}
+    <img src="/images/nopicture.jpg" alt="Picture" class="pictureAccount">
+    {{/if}}
+    <div class="formControl">
+        <label for="name">Name</label>
+        <input type="text" name="name" value="{{userData.name}}" required>
+    </div>
+    <div class="formControl">
+        <label for="picture">Picture</label>
+        <input type="text" name="picture" value="{{userData.picture}}" placeholder="Ex: www.example.com/img.png">
+    </div>
+    <input type="submit" value="Update" class="btn">
+</form>
+
+<a href="/user/logout" class="btnLogout">Logout</a>
