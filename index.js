@@ -1,5 +1,8 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
+const flash = require('express-flash')
+const session = require('express-session')
+const FileStore = require('session-file-store')(session)
 
 // db connection
 const conn = require('./db/conn')
@@ -21,7 +24,39 @@ app.use(express.urlencoded({
 app.use(express.json())
 
 // set folder of the css and images
-app.use(express.static('public'))
+app.use(express.static('public')) 
+
+// flash messages
+app.use(flash())
+
+// create session
+app.use(
+    session({
+        name: 'session',
+        secret: 'a_very_strong_secret',
+        resave: false,
+        saveUninitialized: false,
+        store: new FileStore({
+            logFn: function () { },
+            path: require('path').join(require('os').tmpdir(), 'sessions')
+        }),
+        cookie: {
+            secure: false,
+            maxAge: 360000,
+            expires: new Date(Date.now() + 360000),
+            httpOnly: true
+        }
+    })
+)
+
+app.use((req, res, next) => {
+
+    if (req.session.userid) {
+        res.locals.session = req.session
+    }
+
+    next()
+})
 
 // routes
 app.use('/user', usersRoutes)
@@ -31,7 +66,7 @@ app.get('/', (req, res) => {
 })
 
 app.use((req, res) => {
-    res.render('page/notfound', {layout: false})
+    res.render('page/notfound', { layout: false })
 })
 
 // sync with db and connect

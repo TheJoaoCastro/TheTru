@@ -19,6 +19,11 @@
         </div>
     </nav>
     <div class="conteiner">
+        {{#if messages.message}}
+            <div class="message">
+                {{messages.message}}
+            </div>
+        {{/if}}
         {{{body}}}
     </div>
     <footer>

@@ -63,29 +63,35 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 90vh;
+    min-height: 85vh;
     padding-top: 5vh;
 }
 
-.formLogin {
+form {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 1em;
+    border-radius: 1em;
+    background-color: rgba(255, 255, 255, 0.177);
 }
 
 .formControl {
     display: flex;
     flex-direction: column;
+    background-color: transparent;
     margin-top: 1em;
 }
 
 .formControl label {
-    color: gray;
+    color: rgb(184, 184, 184);
+    background-color: transparent;
     font-size: 1.3em;
     border: none;
 }
 
 .formControl input {
+    background-color: transparent;
     font-size: 1.3em;
     border: none;
     border-bottom: gray 1px solid;
@@ -93,22 +99,65 @@
 }
 
 .formConteiner p {
+    background-color: transparent;
     margin-top: .5em;
     font-size: .7em;
 }
 
 .formConteiner p a {
+    background-color: transparent;
     text-decoration: none;
     color: yellow;
 }
 
-.btn {
+.formButton {
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    margin-top: .5em;
+}
+
+.formButton .btn {
     color: black;
     background-color: yellow;
+    font-size: 1.2em;
     padding: .3em .5em;
     margin: .7em 0;
+    border: none;
     border-radius: .7em;
     cursor: pointer;
+    transition: .5s;
+}
+
+/* flash messages */
+.message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(160, 108, 12, 0.707);
+    padding: .7em;
+    border: 1px white solid;
+    margin-top: 1em;
+    color: white;
+    font-size: 1.3em;
+    border-radius: 15px;
+    min-width: 70vw;
+    max-width: 70vw;
+}
+
+.alert {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(243, 68, 37, 0.707);
+    padding: .7em;
+    border: 1px white solid;
+    margin-top: 1em;
+    color: white;
+    font-size: 1.3em;
+    border-radius: 15px;
+    min-width: 70vw;
+    max-width: 70vw;
 }
 
 /* not found page */
@@ -148,4 +197,5 @@ footer {
 
 footer p {
     color: gray;
+    font-size: .7em;
 }
