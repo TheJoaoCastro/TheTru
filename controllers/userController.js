@@ -5,7 +5,6 @@ const bcrypt = require('bcryptjs')
 
 const { Op } = require('sequelize')
 
-
 module.exports = class userController {
 
     static login(req, res) {
