@@ -13,7 +13,7 @@ router.get('/feed', authUser, userController.feed)
 router.get('/posts', authUser, userController.posts)
 router.post('/posts/create', authUser, userController.postsCreate)
 router.get('/posts/delete/:id', authUser, userController.postsDelete)
-router.get('/account', authUser, userController.account) //TODO ver se é o mesmo usuario, e dps redirecionar para essa rota
+router.get('/account', authUser, userController.account)
 router.post('/account/update', authUser, userController.accountUpdate)
 router.get('/account/:id', authUser, userController.accountUser)
 router.get('/logout', authUser, userController.logout)
