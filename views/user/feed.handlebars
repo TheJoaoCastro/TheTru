@@ -23,7 +23,7 @@
     </div>
     <div class="feed">
         <form action="/user/posts/create" method="post" class="formPostArea">
-            <input type="text" name="post" id="postArea" style="resize: none" placeholder="What are you thinking now?"
+            <input type="text" name="post" id="postArea" style="resize: none" placeholder="{{user.name}}, what are you thinking now?"
                 maxlength="84" autocomplete="off" autofocus>
             <input type="text" name="image" id="postImage" style="resize: none" placeholder="Image link"
                 autocomplete="off" autofocus>
@@ -35,7 +35,7 @@
             <div class="post">
 
                 <div class="postImageNameEmail">
-                    <a href="/user/account/{{this.User.id}}">
+                    <a href="/user/account/{{this.User.uuid}}">
                         <div class="pictureDiv">
                             {{#if this.User.picture}}
                             <img src="{{this.User.picture}}" alt="Picture" class="picture">

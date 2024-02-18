@@ -89,9 +89,11 @@ module.exports = class userController {
 
         const posts = data.map((posts) => posts.get({ plain: true }))
 
+        const user = await User.findOne({ where: { uuid: req.session.userid }, raw: true })
+
         const users = await User.findAll({ order: [['createdAt', 'DESC']], raw: true })
 
-        return res.render('user/feed', { posts, users, layout: 'user' })
+        return res.render('user/feed', { posts, user, users, layout: 'user' })
     }
 
     static async posts(req, res) {
@@ -171,6 +173,10 @@ module.exports = class userController {
 
         const useruuid = req.session.userid
         const idUser = req.params.id
+
+        if (useruuid == idUser) {
+            return res.redirect('/user/posts')
+        }
 
         const userData = await User.findOne({ where: { uuid: idUser }, raw: true })
 
