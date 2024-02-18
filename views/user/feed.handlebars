@@ -1,10 +1,10 @@
 <div class="feedConteiner">
     <div class="users">
-        <h2>All Users</h2>
+        <h2 class="usersTitle">All Users</h2>
         <ul>
             {{#each users}}
             <div class="postImageNameEmail">
-                    <a href="/user/account/{{this.id}}">
+                    <a href="/user/account/{{this.uuid}}">
                         <div class="pictureDiv">
                             {{#if this.picture}}
                             <img src="{{this.picture}}" alt="Picture" class="picture">

@@ -75,9 +75,17 @@ body {
     width: 15vw;
 }
 
-.users h2 {
+.usersTitle {
     margin-bottom: .7em;
-    color: yellow;
+    color: rgb(194, 194, 194);
+}
+
+.friendsTitle {
+    width: 10vw;
+    border-top: 1px gray solid;
+    padding-top: .5em;
+    margin-bottom: .7em;
+    color: rgb(194, 194, 194);
 }
 
 .users ul li {
@@ -290,6 +298,11 @@ form {
     text-decoration: none;
 }
 
+.btn:hover {
+    color: black;
+    background-color: white;
+}
+
 .btnLogout {
     color: white;
     background-color: transparent;
@@ -301,6 +314,26 @@ form {
     cursor: pointer;
     transition: .5s;
     text-decoration: none;
+}
+
+.btnFriend {
+    display: flex;
+    justify-content: center;
+    color: black;
+    background-color: yellow;
+    font-size: 1.2em;
+    padding: .3em .5em;
+    margin: 1em 5.5vw 1em 0;
+    border: none;
+    border-radius: .7em;
+    cursor: pointer;
+    text-decoration: none;
+    transition: .5s;
+}
+
+.btnFriend:hover {
+    color: black;
+    background-color: white;
 }
 
 .pictureAccount {
@@ -381,3 +414,4 @@ footer p {
     color: gray;
     font-size: .7em;
 }
+

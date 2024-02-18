@@ -1,4 +1,5 @@
 const User = require('../models/User')
+//const Friend = require('../models/Friend')
 const Post = require('../models/Post')
 const { v4: uuid } = require('uuid')
 const bcrypt = require('bcryptjs')
@@ -105,6 +106,7 @@ module.exports = class userController {
     }
 
     static async postsCreate(req, res) {
+        
         const title = req.body.post
 
         const image = req.body.image
@@ -167,16 +169,148 @@ module.exports = class userController {
 
     static async accountUser(req, res) {
 
+        const useruuid = req.session.userid
         const idUser = req.params.id
 
-        const userData = await User.findOne({ where: { id: idUser }, raw: true })
+        const userData = await User.findOne({ where: { uuid: idUser }, raw: true })
 
-        const data = await Post.findAll({ where: { UserId: idUser }, order: [['createdAt', 'DESC']] })
-
+        const data = await Post.findAll({ where: { UserUuid: idUser }, order: [['createdAt', 'DESC']] })
         const posts = data.map((posts) => posts.get({ plain: true }))
 
-        return res.render('user/accountUser', { userData, posts, layout: 'user' })
+        /*
+        let stillFriends = await Friend.findOne({where: {friendOneUuid: useruuid, friendTwoUuid: idUser}, raw: true})
+
+        if (stillFriends) {    
+            let friendOne = stillFriends.friendOneAccept
+            let friendTwo = stillFriends.friendTwoAccept
+
+            if (friendOne != friendTwo) {
+                let areFriends = false
+                const theRequestFriend = friendOne
+                return res.render('user/accountUser', { userData, areFriends, friendOne, friendTwo, theRequestFriend, posts, layout: 'user' })
+            } else {
+                let areFriends = true
+                const theRequestFriend = friendOne
+                return res.render('user/accountUser', { userData, areFriends, friendOne, friendTwo, theRequestFriend, posts, layout: 'user' })
+            }
+            
+        }
+
+        if (stillFriends == null) {
+
+            stillFriends = await Friend.findOne({where: {friendTwoUuid: idUser, friendOneUuid: useruuid}, raw: true})
+            
+            if (stillFriends == null) {
+                const friendOne = false
+                const friendTwo = false
+                const areFriends = false
+                const theRequestFriend = friendOne
+
+                return res.render('user/accountUser', { userData, areFriends, friendOne, friendTwo, theRequestFriend, posts, layout: 'user' })
+            }
+            
+            let friendOne = stillFriends.friendOneAccept
+            let friendTwo = stillFriends.friendTwoAccept
+
+            if (friendOne != friendTwo) {
+                let areFriends = false
+            } else {
+                let areFriends = true
+            }
+
+            const theRequestFriend = friendOne
+            */
+        return res.render('user/accountUser', { userData, posts, layout: 'user' }) // areFriends, friendOne, friendTwo, theRequestFriend
     }
+/*
+    static async friendRequest(req, res) {
+        let userid = req.session.userid
+        let requestFriendId = req.params.id
+
+        let stillFriends = await Friend.findOne({where: {friendOneUuid: userid, friendTwoUuid: requestFriendId}, raw: true})
+
+        if (stillFriends == null) {
+            stillFriends = await Friend.findOne({where: {friendOneUuid: requestFriendId, friendTwoUuid: userid}, raw: true})
+            
+            if (stillFriends != null) {
+
+                const friendship = {
+                    friendOneAccept: false,
+                    friendTwoAccept: true
+                }
+        
+                await Friend.update(friendship, {where: {friendOneUuid: requestFriendId}})
+                return res.redirect(`/user/account/${requestFriendId}`)
+
+            } else {
+
+                const friendship = {
+                    friendOneUuid: userid,
+                    friendTwoUuid: requestFriendId,
+                    friendOneAccept: true,
+                    friendTwoAccept: false
+                }
+
+                await Friend.create(friendship)
+                return res.redirect(`/user/account/${requestFriendId}`)
+            }
+        }
+
+        const friendship = {
+            friendOneAccept: true,
+            friendTwoAccept: false
+        }
+
+        await Friend.update(friendship, {where: {friendOneUuid: userid}})
+        return res.redirect(`/user/account/${requestFriendId}`)
+    }
+
+    static async acceptFriendRequest(req, res) {
+        let userid = req.session.userid
+        let requestFriendId = req.params.id
+
+        let data = await Friend.findOne({where: {friendOneUuid: userid, friendTwoUuid: requestFriendId}, raw: true})
+
+        if (data == null) {
+
+            let data = await Friend.findOne({where: {friendOneUuid: requestFriendId, friendTwoUuid: userid}, raw: true})
+
+            if (!data.friendTwoAccept) {
+                const updateStatus = {
+                    friendTwoAccept: true
+                }
+                await Friend.update(updateStatus, {where: {friendOneUuid: userid, friendTwoUuid: requestFriendId}})
+                return res.redirect(`/user/account/${requestFriendId}`)
+
+            } else {
+
+                const updateStatus = {
+                    friendTwoAccept: false
+                }
+                await Friend.update(updateStatus, {where: {friendOneUuid: userid, friendTwoUuid: requestFriendId}})
+                return res.redirect(`/user/account/${requestFriendId}`)
+            }
+
+        } else {
+
+            if (!data.friendOneAccept) {
+                const updateStatus = {
+                    friendOneAccept: true
+                }
+                await Friend.update(updateStatus, {where: {friendOneUuid: userid, friendTwoUuid: requestFriendId}})
+                return res.redirect(`/user/account/${requestFriendId}`)
+
+        } else {
+
+                const updateStatus = {
+                    friendOneAccept: false
+                }
+                await Friend.update(updateStatus, {where: {friendOneUuid: userid, friendTwoUuid: requestFriendId}})
+                return res.redirect(`/user/account/${requestFriendId}`)
+            }
+        }
+    }
+    */
 
     static logout(req, res) {
         req.session.destroy()
