@@ -60,7 +60,7 @@ app.use((req, res, next) => {
 // routes
 app.use('/user', usersRoutes)
 
-app.get('/', async (req, res) => {
+app.get('/', (req, res) => {
     return res.redirect('/user/login')
 })
 

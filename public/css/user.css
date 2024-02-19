@@ -58,6 +58,7 @@ body {
     cursor: context-menu;
     transition: 1s;
     margin-bottom: 1em;
+    padding-left: 1em;
 }
 
 .logoConteiner {
@@ -415,3 +416,41 @@ footer p {
     font-size: .7em;
 }
 
+@media screen and (max-width: 768px) {
+    .users {
+        display: none;
+    }
+
+    .ads {
+        display: none;
+    }
+
+    .navButton {
+        font-size: 1.2em;
+    }
+
+    .conteiner {
+        width: 90vw;
+        padding-left: 1.3em;
+    }
+    
+    #postArea {
+        width: 85vw;
+    }
+    
+    #postImage {
+        width: 85vw;
+    }
+    
+    .posts {
+        min-width: 87vw;
+    }
+    
+    .post {
+        width: 87vw;
+    }
+
+    .postImage {
+        width: 87vw;
+    }
+}
