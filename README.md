@@ -2,6 +2,16 @@
 ![Screenshot](https://raw.githubusercontent.com/TheJoaoCastro/TheTru/main/public/images/images%20README/print3.png)
 ![Screenshot](https://raw.githubusercontent.com/TheJoaoCastro/TheTru/main/public/images/images%20README/print2.png)
 
+## Rede social com registro, login, posts e pedido de amizades
+- LOGIN
+  - Sessão via cookie
+  - Valida todas as rotas e não redireciona caso o usuário esteja deslogado
+- POSTS
+  - Podem enviar imagens
+  - Posts são relacionados ao seus criadores
+- AMIZADES
+  - Pode fazer e desfazer amizades
+
 ## Passo a passo:
 ### Antes de tudo, baixe o XAMPP. Ele virá instalado o MySQL(Banco de dados que estou usando), apenas abra o XAMPP e dê start onde está o MySQL
 #### Obs: Necessita obrigatoriamente do XAMPP, e criar um banco com o nome ``thetru`` caso não saiba configurar a conexão com o banco
