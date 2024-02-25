@@ -6,11 +6,11 @@ const User = require('./User')
 const Friend = db.define('Friend', {
     friendOneUuid: {
         type: DataTypes.STRING,
-        allowNull: true
+        allowNull: false
     },
     friendTwoUuid: {
         type: DataTypes.STRING,
-        allowNull: true
+        allowNull: false
     },
     friendOneAccept: {
         type: DataTypes.BOOLEAN,

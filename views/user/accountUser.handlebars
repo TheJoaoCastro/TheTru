@@ -7,18 +7,34 @@
         {{/if}}
         <h1>{{userData.name}}</h1>
         <p>{{userData.email}}</p>
-        <!--
+        
         {{#if areFriends}}
-            <br>
-            <a href="/user/acceptFriendRequest/{{userData.uuid}}" class="btnFriend">💔</a>
-            <p>Are already friends!</p>
+            <a href="/user/cancelFriendRequest/{{userData.uuid}}" class="btnFriend">💔</a>
         {{else}}
-            {{#if friendOne}}
-                <a href="/user/acceptFriendRequest/{{userData.uuid}}" class="btnFriend">Cancel</a>
+            {{#if areFriendOne}}
+                {{#if friends.friendOneAccept}}
+                    <a href="/user/cancelFriendRequest/{{userData.uuid}}" class="btnFriendRed">Cancel request</a>
+                {{else}}
+                    {{#if friends.friendTwoAccept}}
+                        <a href="/user/acceptFriendRequest/{{userData.uuid}}" class="btnFriend">Accept friend</a>
+                    {{else}}
+                        <a href="/user/friendRequest/{{userData.uuid}}" class="btnFriend">Add friend</a>
+                    {{/if}}
+                {{/if}}
             {{else}}
-                <a href="/user/acceptFriendRequest/{{userData.uuid}}" class="btnFriend">Accept friend</a>
+                {{#if friends.friendTwoAccept}}
+                    <a href="/user/cancelFriendRequest/{{userData.uuid}}" class="btnFriendRed">Cancel request</a>
+                {{else}}
+                    {{#if friends.friendOneAccept}}
+                        <a href="/user/acceptFriendRequest/{{userData.uuid}}" class="btnFriend">Accept friend</a>
+                    {{else}}
+                        <a href="/user/friendRequest/{{userData.uuid}}" class="btnFriend">Add friend</a>
+                    {{/if}}
+                {{/if}}
             {{/if}}
         {{/if}}
+
+        <!--
         <div class="users">
         <h2 class="friendsTitle">Friends</h2>
         <ul>

@@ -322,7 +322,22 @@ form {
     justify-content: center;
     color: black;
     background-color: yellow;
-    font-size: 1.2em;
+    font-size: 1.1em;
+    padding: .3em .5em;
+    margin: 1em 5.5vw 1em 0;
+    border: none;
+    border-radius: .7em;
+    cursor: pointer;
+    text-decoration: none;
+    transition: .5s;
+}
+
+.btnFriendRed {
+    display: flex;
+    justify-content: center;
+    color: white;
+    background-color: red;
+    font-size: 1.1em;
     padding: .3em .5em;
     margin: 1em 5.5vw 1em 0;
     border: none;
@@ -333,6 +348,11 @@ form {
 }
 
 .btnFriend:hover {
+    color: black;
+    background-color: white;
+}
+
+.btnFriendRed:hover {
     color: black;
     background-color: white;
 }
