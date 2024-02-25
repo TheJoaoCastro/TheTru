@@ -11,8 +11,9 @@
   - Posts são relacionados ao seus criadores
 - AMIZADES
   - Pode fazer e desfazer amizades
+<hr>
 
-## Passo a passo:
+## Como iniciar a aplicação:
 ### Antes de tudo, baixe o XAMPP. Ele virá instalado o MySQL(Banco de dados que estou usando), apenas abra o XAMPP e dê start onde está o MySQL
 #### Obs: Necessita obrigatoriamente do XAMPP, e criar um banco com o nome ``thetru`` caso não saiba configurar a conexão com o banco
 - Instale o node e o NPM
